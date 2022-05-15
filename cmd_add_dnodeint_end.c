@@ -13,7 +13,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *new, *ptmp;
 
-	if (head == NULL)
+	if (!head)
 		return (NULL);
 
 	new = malloc(sizeof(stack_t));
@@ -27,8 +27,8 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	else
 	{
 		ptmp = *head;
-		while (ptmp->next != NULL)
-			ptmp = ptmp->next;
+		for (; ptmp->next; ptmp = ptmp->next)
+		;
 		ptmp->next = new;
 		new->prev = ptmp;
 	}

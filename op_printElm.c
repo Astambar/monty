@@ -12,7 +12,7 @@
 void op_printElm(__attribute__((unused))stack_t **stack,
 unsigned int line_number)
 {
-	if (globalVar.arrayCommand[1] == NULL)
+	if (!globalVar.arrayCommand[1])
 	{
 		dprintf(STDERR_FILENO,
 		"L%d: No instructions | print instructions\n", line_number);

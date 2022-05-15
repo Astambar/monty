@@ -13,7 +13,7 @@ void op_rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *ptmp = *stack, *courant = *stack;
 
-	if (ptmp == NULL)
+	if (!ptmp)
 		return;
 	for (; ptmp->next; ptmp = ptmp->next)
 	;

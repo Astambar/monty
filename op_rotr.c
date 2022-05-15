@@ -14,7 +14,7 @@ void op_rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	stack_t *ptmp = *stack;
 	int i = 0;
 
-	if (ptmp == NULL)
+	if (!ptmp)
 		return;
 
 	for (; ptmp->next; ptmp = ptmp->next, i++)

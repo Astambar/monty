@@ -23,7 +23,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 	num = isNumber(globalVar.arrayCommand[1], line_number);
 
-	if (stack == NULL)
+	if (!stack)
 		return;
 	if (globalVar.etat == 0)
 		add_dnodeint(stack, num);

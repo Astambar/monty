@@ -12,11 +12,8 @@ void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 
-	if (stack == NULL)
+	if (!stack)
 		return;
-	while (tmp != NULL)
-	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
-	}
+	for (; tmp; printf("%d\n", tmp->n), tmp = tmp->next)
+	;
 }

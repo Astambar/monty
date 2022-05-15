@@ -15,7 +15,7 @@ void op_mod(stack_t **stack, unsigned int line_number)
 	stack_t *ptmp = *stack;
 	int count = 0;
 
-	if (*stack == NULL || ptmp->next == NULL || ptmp->n == 0)
+	if (!*stack || !ptmp->next || ptmp->n == 0)
 	{
 		if (!*stack || !ptmp->next)
 			dprintf(STDERR_FILENO, "L%d: can't mod, stack too short\n", line_number);

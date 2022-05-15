@@ -16,13 +16,13 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	if (!head)
 		return (NULL);
 	new = malloc(sizeof(stack_t));
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 
 	new->n = n;
 	new->next = *head;
 	new->prev = NULL;
-	if (*head != NULL)
+	if (*head)
 		(*head)->prev = new;
 	*head = new;
 	return (new);

@@ -11,9 +11,9 @@
 */
 void op_pchar(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || (*stack)->n > 127 || (*stack)->n < 0)
+	if (!*stack || (*stack)->n > 127 || (*stack)->n < 0)
 	{
-		if (*stack == NULL)
+		if (!*stack)
 			dprintf(STDERR_FILENO, "L%d: can't pchar, stack empty\n", line_number);
 		else if ((*stack)->n > 127 || (*stack)->n < 0)
 			dprintf(STDERR_FILENO,

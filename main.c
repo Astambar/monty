@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 		{
 			_strtow(globalVar.lineBuff);
 			f = chercheLaFonctionAssocierALaCommande();
-			if (f == NULL)
+			if (!f)
 			{
 				dprintf(STDERR_FILENO,
 				"L%d: unknown instruction %s\n", line, globalVar.arrayCommand[0]);

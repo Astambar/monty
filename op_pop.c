@@ -12,7 +12,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptmp = *stack;
 
-	if (*stack == NULL)
+	if (!*stack)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
 		free(globalVar.lineBuff);
@@ -21,9 +21,9 @@ void op_pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (ptmp->next == NULL)
+	if (!ptmp->next)
 		*stack = NULL;
-	else if (ptmp->next != NULL)
+	else if (ptmp->next)
 	{
 		ptmp->next->prev = NULL;
 		(*stack) = ptmp->next;

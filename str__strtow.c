@@ -11,7 +11,7 @@ void _strtow(char *str)
 {
 	int i, word, letter, k, j = 0;
 
-	if (str == NULL || *str == '\0')
+	if (!str || *str == '\0')
 		return;
 
 	word = _count_word(str);
@@ -19,19 +19,19 @@ void _strtow(char *str)
 		return;
 
 	globalVar.arrayCommand = (char **)malloc(sizeof(char *) * (word + 1));
-	if (globalVar.arrayCommand == NULL)
+	if (!globalVar.arrayCommand)
 		return;
 
 	for (i = 0; i < word; i++)
 	{
-		while (*(str + j) == ' ' || *(str + j) == '\t')
-			j++;
+		for (; *(str + j) == ' ' || *(str + j) == '\t'; j++)
+		;
 
 		letter = _len_word(str + j);
 
 		globalVar.arrayCommand[i] = (char *)malloc(sizeof(char) * letter + 1);
 
-		if (globalVar.arrayCommand[i] == NULL)
+		if (!globalVar.arrayCommand[i])
 		{
 			for ( ; i >= 0; i--)
 				free(globalVar.arrayCommand[i]);
